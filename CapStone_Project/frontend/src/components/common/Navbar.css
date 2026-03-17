@@ -1,0 +1,61 @@
+
+.nav-hover-link {
+  color: #7e0404 !important;
+  transition: color 0.2s ease, opacity 0.2s ease;
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+  text-decoration: none !important;
+}
+
+
+.nav-hover-link:hover {
+  color: #70032b !important;
+  opacity: 0.8;
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+  text-decoration: none !important;
+}
+
+
+.nav-hover-link:focus,
+.nav-hover-link:focus-visible,
+.nav-hover-link:active {
+  color: #3d0218 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+  text-decoration: none !important;
+}
+
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  background: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse.show {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 0.75rem 1rem 1rem;
+    border-radius: 0 0 10px 10px;
+    margin-top: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  .navbar-collapse.show .nav-link {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .navbar-collapse.show .btn {
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+}
