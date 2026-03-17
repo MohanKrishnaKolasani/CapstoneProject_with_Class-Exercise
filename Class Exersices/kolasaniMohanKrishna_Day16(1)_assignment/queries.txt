@@ -1,0 +1,222 @@
+
+
+Database Name: BookVerseDB
+
+---
+
+1. Use Database
+
+---
+
+use BookVerseDB
+
+---
+
+2. Insert Sample Authors
+
+---
+
+db.Authors.insertMany([
+{
+name: "R. K. Narayan",
+nationality: "Indian",
+birthYear: 1906
+},
+{
+name: "Khushwant Singh",
+nationality: "Indian",
+birthYear: 1915
+},
+{
+name: "Aravind Adiga",
+nationality: "Indian",
+birthYear: 1974
+}
+])
+
+---
+
+3. Insert Sample Users
+
+---
+
+db.Users.insertMany([
+{
+name: "Mohan",
+email: email: "mohan@email.com",
+joinDate: "2025-12-01"
+},
+{
+name: "Surya",
+email: "surya@email.com",
+joinDate: "2025-11-15"
+},
+{
+name: "Anitha",
+email: "anitha@email.com",
+joinDate: "2026-01-10"
+}
+])
+
+---
+
+4. Insert Books
+
+---
+
+db.Books.insertMany([
+{
+title: "The Guide",
+genre: "Fiction",
+publicationYear: 1958,
+authorId: 1,
+ratings: [
+{
+user: "Mohan",
+score: 5,
+comment: "Classic Indian novel"
+}
+]
+},
+{
+title: "Train to Pakistan",
+genre: "Historical Fiction",
+publicationYear: 1956,
+authorId: 2,
+ratings: []
+},
+{
+title: "The White Tiger",
+genre: "Fiction",
+publicationYear: 2008,
+authorId: 3,
+ratings: []
+},
+{
+title: "The Immortals of Meluha",
+genre: "Fantasy",
+publicationYear: 2010,
+authorId: 2,
+ratings: []
+},
+{
+title: "The Ministry of Utmost Happiness",
+genre: "Fiction",
+publicationYear: 2017,
+authorId: 3,
+ratings: []
+}
+])
+
+---
+
+5. Insert New User
+
+---
+
+db.Users.insertOne({
+name: "Rahul",
+email: "[rahul@email.com](mailto:rahul@email.com)",
+joinDate: "2026-02-01"
+})
+
+---
+
+6. Retrieve Fantasy Books
+
+---
+
+db.Books.find({ genre: "Fantasy" })
+
+---
+
+7. Update Publication Year
+
+---
+
+db.Books.updateOne(
+{ title: "The White Tiger" },
+{ $set: { publicationYear: 2010 } }
+)
+
+---
+
+8. Delete User
+
+---
+
+db.Users.deleteOne({ name: "Rahul" })
+
+---
+
+9. Add Rating using $push
+
+---
+
+db.Books.updateOne(
+{ title: "The Guide" },
+{
+$push: {
+ratings: {
+user: "Surya",
+score: 4,
+comment: "Very good novel"
+}
+}
+}
+)
+
+---
+
+10. Retrieve Books Published After 2015
+
+---
+
+db.Books.find({ publicationYear: { $gt: 2015 } })
+
+---
+
+11. Retrieve Users Joined in Last 6 Months
+
+---
+
+db.Users.find({
+joinDate: { $gte: "2025-09-01" }
+})
+
+---
+
+12. Books with Average Rating Greater Than 4
+
+---
+
+db.Books.aggregate([
+{
+$addFields: {
+avgRating: { $avg: "$ratings.score" }
+}
+},
+{
+$match: {
+avgRating: { $gt: 4 }
+}
+}
+])
+
+---
+
+#Bonus Query
+
+db.Books.aggregate([
+{
+$addFields: {
+ratingCount: { $size: "$ratings" }
+}
+},
+{
+$sort: { ratingCount: -1 }
+},
+{
+$limit: 3
+}
+])

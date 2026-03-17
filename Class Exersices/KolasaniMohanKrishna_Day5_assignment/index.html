@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fetch API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Blog Posts and Todo List</h1>
+
+<button onclick="BlogApp.fetchBlogPosts()">Load Posts</button>
+<div id="blogContainer"></div>
+
+<h2>Todos</h2>
+<button onclick="BlogApp.fetchTodoTasks()">Load Todos</button>
+<div id="todoContainer"></div>
+
+<script>
+
+const BlogApp = (function () {
+
+    const postsEndpoint = "https://jsonplaceholder.typicode.com/posts";
+    const todosEndpoint = "https://jsonplaceholder.typicode.com/todos";
+
+    const blogSection = document.getElementById("blogContainer");
+    const todoSection = document.getElementById("todoContainer");
+
+    async function getServerData(apiUrl) {
+        try {
+            const serverResponse = await fetch(apiUrl);
+
+            if (!serverResponse.ok) {
+                throw new Error("Server responded with an error.");
+            }
+
+            const jsonData = await serverResponse.json();
+
+            if (!jsonData || !Array.isArray(jsonData)) {
+                throw new Error("Unexpected data format received.");
+            }
+
+            return jsonData;
+
+        } catch (err) {
+            throw new Error("Unable to connect. Please check your internet or try again later.");
+        }
+    }
+    async function fetchBlogPosts() {
+        blogSection.innerHTML = "<p class='loading'>Fetching posts...</p>";
+
+        try {
+            const postList = await getServerData(postsEndpoint);
+            blogSection.innerHTML = "";
+
+            postList.slice(0, 5).forEach(singlePost => {
+                const postCard = document.createElement("div");
+                postCard.className = "blog-card";
+
+                const titleElement = document.createElement("h4");
+                titleElement.textContent = singlePost.title;
+
+                const bodyElement = document.createElement("p");
+                bodyElement.textContent = singlePost.body;
+
+                postCard.appendChild(titleElement);
+                postCard.appendChild(bodyElement);
+
+                blogSection.appendChild(postCard);
+            });
+
+        } catch (error) {
+            blogSection.innerHTML = `<div class="error-message">${error.message}</div>`;
+        }
+    }
+    async function fetchTodoTasks() {
+        todoSection.innerHTML = "<p class='loading'>Fetching todos...</p>";
+
+        try {
+            const todoList = await getServerData(todosEndpoint);
+            todoSection.innerHTML = "";
+
+            todoList.slice(0, 5).forEach(singleTask => {
+                const taskCard = document.createElement("div");
+                taskCard.className = "task-card";
+
+                const taskTitle = document.createElement("p");
+                taskTitle.textContent = singleTask.title;
+
+                const statusLabel = document.createElement("strong");
+                statusLabel.textContent = singleTask.completed ? "Completed" : "Pending";
+
+                taskCard.appendChild(taskTitle);
+                taskCard.appendChild(statusLabel);
+
+                todoSection.appendChild(taskCard);
+            });
+
+        } catch (error) {
+            todoSection.innerHTML = `<div class="error-message">${error.message}</div>`;
+        }
+    }
+    return {
+        fetchBlogPosts,
+        fetchTodoTasks
+    };
+
+})();
+</script>
+
+</body>
+</html>

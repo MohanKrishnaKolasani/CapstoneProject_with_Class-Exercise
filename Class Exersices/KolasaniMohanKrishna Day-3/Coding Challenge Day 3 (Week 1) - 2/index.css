@@ -1,0 +1,101 @@
+header {
+    background-color: #e2b98a;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid black;
+}
+
+.logo {
+    background: black;
+    padding: 5px 15px;
+    border: 1px solid black;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    display: block;
+}
+
+#profile,
+#timetable {
+    display: none;
+}
+
+#profile:target,
+#timetable:target {
+    display: block;
+}
+
+#profile:target ~ #welcome,
+#timetable:target ~ #welcome {
+    display: none;
+}
+
+#profile {
+    display: none;
+    background-color: #e2b98a;
+    border: 2px solid black;
+    margin-top: 20px;
+    height: 500px;
+}
+
+#profile:target {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.student-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid black;
+    position: absolute;
+    top: 180px;
+    left: 40px;
+    overflow: hidden;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+.student-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.student-info {
+    text-align: center;
+    padding-top: 150px;
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #profile:target {
+        flex-direction: column;
+    }
+}
+#welcome {
+    text-align: center;
+}

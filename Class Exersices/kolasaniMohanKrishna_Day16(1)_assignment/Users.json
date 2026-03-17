@@ -1,0 +1,24 @@
+[{
+  "_id": {
+    "$oid": "69a85489c654d67e29721d7f"
+  },
+  "name": "Mohan",
+  "email": "mohan@email.com",
+  "joinDate": "2025-12-01"
+},
+{
+  "_id": {
+    "$oid": "69a85494c654d67e29721d81"
+  },
+  "name": "Surya",
+  "email": "surya@email.com",
+  "joinDate": "2025-11-15"
+},
+{
+  "_id": {
+    "$oid": "69a8549ec654d67e29721d83"
+  },
+  "name": "Anitha",
+  "email": "anitha@email.com",
+  "joinDate": "2026-01-10"
+}]

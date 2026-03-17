@@ -1,0 +1,28 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "The White Tiger",
+      "author": "Aravind Adiga",
+      "price": 350,
+      "bio": "Indian writer and Booker Prize winner.",
+      "topBooks": ["The White Tiger", "Last Man in Tower", "Selection Day"]
+    },
+    {
+      "id": 2,
+      "title": "Malgudi Days",
+      "author": "R. K. Narayan",
+      "price": 250,
+      "bio": "Famous Indian writer known for Malgudi stories.",
+      "topBooks": ["Malgudi Days", "The Guide", "Swami and Friends"]
+    },
+    {
+      "id": 3,
+      "title": "Five Point Someone",
+      "author": "Chetan Bhagat",
+      "price": 299,
+      "bio": "Indian author known for youth novels.",
+      "topBooks": ["Five Point Someone", "2 States", "Half Girlfriend"]
+    }
+  ]
+}

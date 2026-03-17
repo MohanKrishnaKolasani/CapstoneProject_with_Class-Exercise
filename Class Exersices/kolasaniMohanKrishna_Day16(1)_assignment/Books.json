@@ -1,0 +1,61 @@
+[{
+  "_id": {
+    "$oid": "69a85594c654d67e29721d90"
+  },
+  "title": "The Guide",
+  "genre": "Fiction",
+  "publicationYear": 1958,
+  "authorId": 1,
+  "ratings": [
+    {
+      "user": "Mohan",
+      "score": 5,
+      "comment": "Classic Indian novel"
+    },
+    {
+      "user": "Surya",
+      "score": 4,
+      "comment": "Very good novel"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "69a8559ec654d67e29721d92"
+  },
+  "title": "Train to Pakistan",
+  "genre": "Historical Fiction",
+  "publicationYear": 1956,
+  "authorId": 2,
+  "ratings": []
+},
+{
+  "_id": {
+    "$oid": "69a855a7c654d67e29721d94"
+  },
+  "title": "The White Tiger",
+  "genre": "Fiction",
+  "publicationYear": 2010,
+  "authorId": 3,
+  "ratings": []
+},
+{
+  "_id": {
+    "$oid": "69a855aec654d67e29721d96"
+  },
+  "title": "The Immortals of Meluha",
+  "genre": "Fantasy",
+  "publicationYear": 2010,
+  "authorId": 2,
+  "ratings": []
+},
+{
+  "_id": {
+    "$oid": "69a855b7c654d67e29721d98"
+  },
+  "title": "The Ministry of Utmost Happiness",
+  "genre": "Fiction",
+  "publicationYear": 2017,
+  "authorId": 3,
+  "ratings": []
+}]

@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+
+    "module": "esnext",
+    "target": "es2020",
+
+    "lib": ["es2020", "dom"],
+
+    "strict": true,
+    "sourceMap": true,
+    "skipLibCheck": true
+  }
+}

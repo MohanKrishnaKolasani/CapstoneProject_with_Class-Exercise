@@ -1,0 +1,24 @@
+[{
+  "_id": {
+    "$oid": "69a85d8bc654d67e29721daa"
+  },
+  "name": "R. K. Narayan",
+  "nationality": "Indian",
+  "birthYear": 1906
+},
+{
+  "_id": {
+    "$oid": "69a85d98c654d67e29721dac"
+  },
+  "name": "Khushwant Singh",
+  "nationality": "Indian",
+  "birthYear": 1915
+},
+{
+  "_id": {
+    "$oid": "69a85dabc654d67e29721dae"
+  },
+  "name": "Aravind Adiga",
+  "nationality": "Indian",
+  "birthYear": 1974
+}]
